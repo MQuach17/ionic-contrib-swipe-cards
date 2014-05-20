@@ -2,8 +2,25 @@ Ionic Contrib: Swipeable Cards
 ===================
 
 Swipeable card based layout for Ionic and Angular. As seen in apps like [Jelly](http://jelly.co/)
-
 [Demo](http://ionicframework.com/demos/swipe-cards/)
+
+This fork contains a minor enhancement to the original swipeable cards directive, that allows you to swipe left/right, up or down.This is configured via a swipetype attribute on the main <swipe-cards> directive, e.g.
+
+
+```html
+<swipe-cards swipetype="left-right">
+  <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-left-swipe="cardSwipedLeft($index)" on-right-swipe="cardSwipedRight($index)">
+    Card content here
+  </swipe-card>
+</swipe-cards>
+```
+
+Valid values for swipetype are:
+* left-right (on-left-swipe, on-right-swipe)
+* up (on-up-swipe)
+* down (on-down-swipe)
+
+
 
 ## Usage
 

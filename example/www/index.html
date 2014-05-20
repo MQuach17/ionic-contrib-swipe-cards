@@ -25,7 +25,7 @@
 
     <!-- your app's script -->
     <script src="js/app.js"></script>
-    <script src="js/ionic.cards.js"></script>
+    <script src="../../ionic.swipecards.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
   </head>
@@ -37,11 +37,11 @@
     <pane ng-controller="CardsCtrl">
       <header-bar type="bar-transparent" title="'Help out'"></header-bar>
 
-      <swipe-cards>
-        <swipe-card on-swipe="cardSwiped()" id="start-card">
+      <swipe-cards swipetype="left-right">
+        <swipe-card on-left-swipe="cardSwiped()" on-right-swipe="cardSwiped()" on-down-swipe="cardSwiped()" on-up-swipe="cardSwiped()" id="start-card">
           Swipe down for a new card
         </swipe-card>
-        <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
+        <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-left-swipe="cardSwiped($index)" on-down-swipe="cardSwiped($index)" on-up-swipe="cardSwiped($index)" on-right-swipe="cardSwiped($index)">
           <div ng-controller="CardCtrl">
             <div class="title">
               {{card.title}}
